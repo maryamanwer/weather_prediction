@@ -1,0 +1,44 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Sun Apr 28 04:37:10 2019
+
+@author: taha
+"""
+
+import pandas as pd
+
+df = pd.read_csv('preiction_system.csv')
+
+#start = input("Enter start  Date\n")
+#end = input("Enter end  Date\n")
+
+start = "2019/12/02"
+end = "2019/12/04"
+
+result = df[ (df['Date'] >= start ) & (df['Date'] <= end) ]
+
+print(result)
+
+given = "2019/12/02" # for single row s
+ans = df[ (df['Date'] == given ) ]
+print(ans)
+
+#result.to_csv('output.csv')
+
+
+import csv
+
+# ask before `for` loop
+#start = input("Enter start  Date\n")
+#end = input("Enter end  Date\n")
+
+start = "2019/12/02"
+end = "2019/12/04"
+
+with open('preiction_system.csv', 'r') as csvFile:
+    reader = csv.reader(file_object)
+
+    for row in reader:
+        if start<= row[0] <= end:
+            print(row)
